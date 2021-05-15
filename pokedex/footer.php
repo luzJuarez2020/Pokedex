@@ -16,6 +16,9 @@
                 <li class="w3-padding-8">
                     <span class="w3-large">Juarez Luz</span><br>
                 </li>
+                <li class="w3-padding-8">
+                    <span class="w3-large">Giorgi Nahuel</span><br>
+                </li>
             </ul>
         </div>
 

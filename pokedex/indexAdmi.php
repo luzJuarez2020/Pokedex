@@ -1,4 +1,13 @@
-
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "pokemones";
+$port = "3307";
+$conectar = new mysqli($servername, $username, $password, $database, $port);
+$sql = "select * from pokemon";
+$resultado = $conectar->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <title>pokedex</title>
@@ -35,38 +44,46 @@
     </form>
 </div>
 
-<table class="w3-table  w3-border w3-centered">
+
+<table class="w3-table  w3-centered w3-border-red" style="margin-top: 15px">
+    <thead>
     <tr >
-        <th class=" w3-border">Imagen</th>
-        <th class=" w3-border">Tipo</th>
-        <th class=" w3-border">Numero</th>
-        <th class=" w3-border">Nombre</th>
-        <th class="w3-border">Habilidades</th>
-        <th class="w3-border">Quitar</th>
+        <th class=" w3-border w3-border-red">Imagen</th>
+        <th class=" w3-border w3-border-red">Tipo</th>
+        <th class=" w3-border w3-border-red">Numero</th>
+        <th class=" w3-border w3-border-red">Nombre</th>
+        <th class=" w3-border w3-border-red">Acciones</th>
     </tr>
-    <tr>
-        <td class=" w3-border">
-            <img src="Bulbasaur.png" height="100px">
-        </td>
-        <td class=" w3-border">
-            <img src="logo_planta.png " height="30px">
-        </td>
-        <td class=" w3-border" style="font-size: 30px; font-weight: bold">
-            226
-        </td>
-        <td class=" w3-border"style="font-size: 30px; font-weight: bold">
-            bulbasaur
-        </td>
-        <td class=" w3-border"style="font-size: 30px; font-weight: bold">
-            <button type="button">Modificar</button>
-        </td>
-        <td class=" w3-border"style="font-size: 30px; font-weight: bold">
-            <button type="button">Baja</button>
-        </td>
-    </tr>
+    </thead>
+    <tbody>
+    <?php
+    while($filas = $resultado->fetch_assoc()){
+        ?>
+        <tr>
+            <td class=" w3-border w3-border-red" ">
+                <?php
+                $link=$filas['imagenLink'];
 
+                echo "<img src='$link' style='width: 65px'>"?>
+            </td>
+            <td class=" w3-border w3-border-red" ">
+                <?php echo $filas['tipo'] ?>
+            </td>
+            <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold ">
+                <?php echo $filas['numero'] ?>
+            </td>
+            <td class=" w3-border w3-border-red"style="font-size: 30px; font-weight: bold ">
+                <?php echo $filas['nombre'] ?>
+            </td>
+            <td class=" w3-border w3-border-red">
+                <button type="submit"> Habilidades</button>
+                <button type="submit">Baja</button>
+            </td>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
 </table>
-
 
 
 <div class="w3-border w3-center ">

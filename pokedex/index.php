@@ -1,5 +1,13 @@
 <?php
 require ("header.php");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "pokemones";
+$port = "3307";
+$conectar = new mysqli($servername, $username, $password, $database, $port);
+$sql = "select * from pokemon";
+$resultado = $conectar->query($sql);
 ?>
 
 <!-- !PAGE CONTENT! -->
@@ -16,7 +24,7 @@ require ("header.php");
     <!-- First Photo Grid-->
 
     <!-- Second Photo Grid-->
-   <?php
+   <?php /*
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -32,38 +40,45 @@ require ("header.php");
            $link=$fila["imagenLink"];
            echo "<img src='$link'>";
        }
-   } else {
-       echo "0 results";
    }
-   /*$$conectar->close();*/
+   $conectar->close();*/
     ?>
 
 
 
-    <table class="w3-table  w3-border w3-centered">
+    <table class="w3-table  w3-centered w3-border-red" style="margin-top: 15px">
+        <thead>
         <tr >
-            <th class=" w3-border">Imagen</th>
-            <th class=" w3-border">Tipo</th>
-            <th class=" w3-border">Numero</th>
-            <th class=" w3-border">Nombre</th>
+            <th class=" w3-border w3-border-red">Imagen</th>
+            <th class=" w3-border w3-border-red">Tipo</th>
+            <th class=" w3-border w3-border-red">Numero</th>
+            <th class=" w3-border w3-border-red">Nombre</th>
         </tr>
-        <tr>
-            <td class=" w3-border">
-                <img src="Bulbasaur.png" height="100px">
-            </td>
-            <td class=" w3-border">
-                <img src="logo_planta.png " height="30px">
-            </td>
-            <td class=" w3-border" style="font-size: 30px; font-weight: bold">
-                226
-            </td>
-            <td class=" w3-border"style="font-size: 30px; font-weight: bold">
-                bulbasaur
-            </td>
-        </tr>
+        </thead>
+        <tbody>
+        <?php
+        while($filas = $resultado->fetch_assoc()){
+            ?>
+            <tr>
+                <td class=" w3-border w3-border-red" >
+                    <?php
+                    $link=$filas['imagenLink'];
 
+                    echo "<img src='$link' style='width: 65px'>";?>
+                </td>
+                <td class=" w3-border w3-border-red" >
+                    <?php echo $filas['tipo'] ?>
+                </td>
+                <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold">
+                    <?php echo $filas['numero'] ?>
+                </td>
+                <td class=" w3-border w3-border-red"style="font-size: 30px; font-weight: bold ">
+                    <?php echo $filas['nombre'] ?>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
     </table>
-
 
 
     <!-- Footer -->
