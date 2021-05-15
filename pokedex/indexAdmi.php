@@ -76,7 +76,10 @@ $resultado = $conectar->query($sql);
                 <?php echo $filas['nombre'] ?>
             </td>
             <td class=" w3-border w3-border-red">
-                <button type="submit"> Habilidades</button>
+                <?php
+                $var=$filas["numero"];
+                echo "<a href='editarHabilidades.php?numero=$var'>"."<button type='submit'>Habilidades</button></a>";
+                ?>
                 <button type="submit">Baja</button>
             </td>
             </td>

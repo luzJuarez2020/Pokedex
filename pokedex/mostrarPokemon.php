@@ -30,18 +30,18 @@
 <?php
 
 
-if ((include 'procesarbusqueda.php') == TRUE) {
-    echo 'OK';
-}
 
 
 
-/*$servername = "localhost";
+
+$servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
 $port = "3307";
-$conexion = new mysqli($servername, $username, $password, $database, $port);*/
+$conexion = new mysqli($servername, $username, $password, $database, $port);
+
+
 
 
 

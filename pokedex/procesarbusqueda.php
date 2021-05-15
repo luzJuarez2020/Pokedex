@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $dato= isset($_POST["busqueda"]) ? $_POST["busqueda"] : "";
 
 $servername = "localhost";
