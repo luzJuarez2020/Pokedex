@@ -5,11 +5,6 @@ session_start();
 $dato= isset($_POST["busqueda"]) ? $_POST["busqueda"] : "";
 $numero=0;
 
-if(is_numeric($dato)){
-    $numero=$dato;
-}
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,39 +17,52 @@ $conexion = new mysqli($servername, $username, $password, $database, $port);
     echo "error en conexion";
 } else {
     echo "conexion exitosa";
-}*/
+}
 echo "<br>";
+*/
 $sql = "select * from pokemon";
 $resultado = $conexion->query($sql);
 
-if ($resultado->num_rows > 0) {//num rows me dice la cantidad de filas en la query
-    while ($fila = $resultado->fetch_assoc()) {//fetch assoc nos devuelve el resultado de una fila como un array asociativo
-        if(is_numeric($dato)){
-            if($dato==$fila["numero"]){
-                header("location:index.php");
+function busqueda($resultado, $dato)
+{
+    if ($resultado->num_rows > 0) {//num rows me dice la cantidad de filas en la query
+        while ($fila = $resultado->fetch_assoc()) {//fetch assoc nos devuelve el resultado de una fila como un array asociativo
+            if (is_numeric($dato)) {
+                if ($dato == $fila["numero"]) {
+                    echo "numero: " . $fila["numero"] . " " . "nombre: " . $fila["nombre"] . "tipo: " . $fila["tipo"] . "<br>" . "<br>";
+                }
             }
-        }
-        else if($dato==$fila["nombre"]){
-            header("location:index.php");
-        }
-        else if($dato==$fila["tipo"]){
-            header("location:index.php");
-        }else{
-            if(isset($_SESSION["usuario"])){
-                header("location:indexAdmi.php");
-                exit();
-            }else {
-                header("location:index.php");
-                exit();
+            if ($dato == $fila["nombre"]) {
+                echo "numero: " . $fila["numero"] . " " . "nombre: " . $fila["nombre"] . " tipo: " . $fila["tipo"] . "<br>" . "<br>";
+
             }
+            if ($dato == $fila["tipo"]) {
+                echo "numero: " . $fila["numero"] . " " . "nombre: " . $fila["nombre"] . "tipo: " . $fila["tipo"] . "<br>" . "<br>";
+
+            }
+            /*if ($dato !=$fila["numero"] && $dato != $fila["nombre"]&& $dato != $fila["tipo"]){
+                sesionIniciada();
+            }*/
         }
+    } else {
+        echo "0 results";
     }
-} else {
-    echo "0 results";
+
 }
 
+function sesionIniciada(){
+    if(isset($_SESSION["usuario"])){
+        header("location:indexAdmi.php");
+        exit();
+    }else {
+        header("location:index.php");
+        exit();
+    }
+}
 
+busqueda($resultado, $dato);
 
+$conexion->close();
 /*
 
     //conectar con el servidor de bases de datos
