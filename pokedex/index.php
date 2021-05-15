@@ -16,6 +16,30 @@ require ("header.php");
     <!-- First Photo Grid-->
 
     <!-- Second Photo Grid-->
+   <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "pokemones";
+    $port = "3307";
+    $conectar = new mysqli($servername, $username, $password, $database, $port);
+   $sql = "select * from pokemon";
+
+   $result = $conectar->query($sql);
+   if ($result->num_rows > 0) {
+       while($fila = $result->fetch_assoc()) {
+           echo "Numero: " . $fila["numero"]. " - Nombre: " . $fila["nombre"]. " - Tipo: " . $fila["tipo"]. "<br>";
+           $link=$fila["imagenLink"];
+           echo "<img src='$link'>";
+       }
+   } else {
+       echo "0 results";
+   }
+   /*$$conectar->close();*/
+    ?>
+
+
+
     <table class="w3-table  w3-border w3-centered">
         <tr >
             <th class=" w3-border">Imagen</th>

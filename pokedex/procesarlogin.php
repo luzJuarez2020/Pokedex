@@ -19,4 +19,8 @@ function validarusuario($user,$contrasenia){/*ahorro base d datos*/
 
 
 
+
+
+
+
 ?>
