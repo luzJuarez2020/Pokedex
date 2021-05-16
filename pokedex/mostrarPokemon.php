@@ -14,17 +14,25 @@ $sql = "select * from pokemon where numero = '$dato' or tipo = '$dato' or nombre
 $resultado = $conexion->query($sql);
 
 function mostrarResultado($resultado){
-    if ($resultado->num_rows > 0) {
+    if ($resultado->num_rows >0) {
         while ($fila = $resultado->fetch_assoc()) {
             $nombre = $fila["nombre"];
             $tipo = $fila["tipo"];
             $numero = $fila["numero"];
             $descripcion = $fila["descripcion"];
             $imagen = $fila["imagenLink"];
+            $habilidad = $fila["habilidad"];
 
-            echo "<img src='$imagen' style='width: 65px'>";
-            echo "<h1>$nombre Tipo: $tipo Nro: $numero</h1>";
-            echo "<p>$descripcion</p>";
+            echo "<div style='display: flex;flex-direction: column;text-align: left;background-color: #e8c7c7;margin-bottom: 20px'>";
+            echo "<div style='display: flex;flex-direction: row'>";
+            echo "<img src='$imagen' style='width: 150px'>";
+            echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre </h1>";
+            echo "</div>";
+            echo "<h2 >Tipo: $tipo</h2>";
+            echo "<h2 >Numero: $numero</h2>";
+            echo "<h2 >Habilidad: $habilidad</h2>";
+            echo "<p style='font-size: 18px'>$descripcion</p>";
+            echo "</div>";
         }
     } else{
         if (isset($_SESSION["usuario"])) {
@@ -37,8 +45,6 @@ function mostrarResultado($resultado){
     }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <title>pokedex</title>
