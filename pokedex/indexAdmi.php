@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3307";
+$port = "3306";
 $conectar = new mysqli($servername, $username, $password, $database, $port);
 $sql = "select * from pokemon";
 $resultado = $conectar->query($sql);
@@ -25,6 +25,7 @@ $resultado = $conectar->query($sql);
         background-color: #f44336 ;
         color: white;
         border: 2px solid #f44336;
+        margin-right: 10px;
     }
 
     .button:hover {
@@ -92,8 +93,8 @@ $resultado = $conectar->query($sql);
                 <?php
                 $var=$filas["numero"];
                 echo "<a href='editarHabilidades.php?numero=$var'>"."<button type='submit'  class='button'>Habilidades</button></a>";
+                echo "<a href='eliminarPokemon.php?numero=$var'>"."<button type='submit'  class='button'>Eliminar</button></a>";
                 ?>
-                <button type="submit" class="button" >Baja</button>
             </td>
             </td>
         </tr>

@@ -42,7 +42,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3307";
+$port = "3306 ";
 $conexion = new mysqli($servername, $username, $password, $database, $port);
 
 $sql = "select * from pokemon";
@@ -60,11 +60,21 @@ if ($resultado->num_rows > 0) {
             }
     }
 }
+
+if(isset($_POST['modificar'])){
+    $id = $_GET['numero'];
+    $habilidad = $_POST['habilidades'];
+    $sqlUpdate = "UPDATE pokemon SET habilidad = '$habilidad' WHERE numero = $id";
+    $conexion->query($sqlUpdate);
+    $_SESSION['message'] = "Habilidad modificada exitosamente";
+    header("Location: indexAdmi.php");
+}
 ?>
     <br><br>
-<form method="get" action="editar.php">
+<form method="POST" action="editar.php?numero=<?php echo $_GET['numero']; ?>">
     <label>Seleccionar la habilidad a editar:
-    <select name="habilidades"  >
+    <select name="habilidades">
+        <option value="">Seleccione Habilidad</option>
         <option value="absorbeAgua">Absorbe agua</option>
         <option value="absorbeElectricidad">Absorbe electricidad</option>
         <option value="absorbeFuego">Absorbe fuego</option>
@@ -75,12 +85,7 @@ if ($resultado->num_rows > 0) {
         <option value="inmunidad">Inmunidad</option>
     </select>
     </label>
-    <?php
-    echo "<a href='editar.php?num=$numeroRecibido'>"."<button type='submit' class='button'>editar</button></a>";
-    ?>
-
-
-
+    <button type='submit' name= 'modificar' class='button'>Editar</button></a>
 </form>
 <br>
 </div>
