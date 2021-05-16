@@ -12,7 +12,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3306";
+$port = "3307";
 
 $conexion = new mysqli($servername, $username, $password, $database, $port);
 

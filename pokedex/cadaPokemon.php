@@ -10,6 +10,8 @@ $sql = "select * from pokemon";
 $resultado = $conectar->query($sql);
 $variableRecibida = null;
 
+
+
 if(isset($_GET["nombre"])) {
     $variableRecibida=$_GET["nombre"];
 }
@@ -24,15 +26,31 @@ function obtenerPokemon($variableRecibida, $resultado) {
                 $imagen = $fila["imagenLink"];
                 $habilidad = $fila["habilidad"];
 
-                echo "<div style='display:flex; flex-direction: row; Justify-content: center;>";
+                /*echo "<div style='display:flex; flex-direction: row; Justify-content: center;>";
+
                 echo "<div>";
+
                 echo "<img src='$imagen' style='width: 400px'>";
+
                 echo "</div>";
                 echo "<div>";
+
                 echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre</h1>";
                 echo "<h3>$habilidad</h3>";
                 echo "<p style='font-size: 18px'>$descripcion</p>";
+
                 echo "</div>";
+
+                echo "</div>";*/
+                echo "<div style='display: flex;flex-direction: column;text-align: left;margin-bottom: 20px'>";
+                echo "<div style='display: flex;flex-direction: row'>";
+                echo "<img src='$imagen' style='width: 300px'>";
+                echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre </h1>";
+                echo "<h2 >Tipo: $tipo</h2>";
+                echo "<h2 >Habilidad: $habilidad</h2>";
+                echo "</div>";
+                /*echo "<h2 >Numero: $numero</h2>";*/
+                echo "<p style='font-size: 18px'>$descripcion</p>";
                 echo "</div>";
 
 
