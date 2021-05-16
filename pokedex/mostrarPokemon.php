@@ -1,3 +1,44 @@
+<?php
+session_start();
+$dato= isset($_POST["busqueda"]) ? $_POST["busqueda"] : "";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "pokemones";
+$port = "3307";
+$conexion = new mysqli($servername, $username, $password, $database, $port);
+
+$sql = "select * from pokemon where numero = '$dato' or tipo = '$dato' or nombre = '$dato'";
+
+$resultado = $conexion->query($sql);
+
+function mostrarResultado($resultado){
+    if ($resultado->num_rows > 0) {
+        while ($fila = $resultado->fetch_assoc()) {
+            $nombre = $fila["nombre"];
+            $tipo = $fila["tipo"];
+            $numero = $fila["numero"];
+            $descripcion = $fila["descripcion"];
+            $imagen = $fila["imagenLink"];
+
+            echo "<img src='$imagen' style='width: 65px'>";
+            echo "<h1>$nombre Tipo: $tipo Nro: $numero</h1>";
+            echo "<p>$descripcion</p>";
+        }
+    } else{
+        if (isset($_SESSION["usuario"])) {
+            header("location:indexAdmi.php");
+            exit();
+        } else {
+            header("location:index.php");
+            exit();
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <title>pokedex</title>
@@ -22,53 +63,22 @@
         <h1 ><b>POKEDEX</b></h1>
     </div >
     <div class="w3-col s4 w3-center" style="padding-top: 25px">
-        <p>usuario admi</p>
-    </div>
 
+    </div>
 </header>
+
 
 <?php
 
-
-
-
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "pokemones";
-$port = "3307";
-$conexion = new mysqli($servername, $username, $password, $database, $port);
-
-
-
-
-
-
-
-
+mostrarResultado($resultado);
 
 ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-
 
 require ("footer.php");
 
 ?>
+
+

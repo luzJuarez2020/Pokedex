@@ -45,12 +45,13 @@ $resultado = $conectar->query($sql);
     </div >
     <div class="w3-col s4 w3-center" style="padding-top: 25px">
         <p>usuario admi</p>
+        <a href='cerrarSesion.php'><button type='submit'  class='button'>Cerrar sesion</button></a>
     </div>
 
 </header>
 
 <div class="w3-container">
-    <form action="procesarbusqueda.php" method="post">
+    <form action="mostrarPokemon.php" method="post">
         <input  class="w3-input w3-border" type="text" name="busqueda" id="busqueda" placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
         <button type="submit"  class="button">Quien es este pokemon</button>
     </form>
@@ -105,9 +106,6 @@ $resultado = $conectar->query($sql);
     <a href="nuevoPokemon.php"><button type="button" class="button" style="width: 100%">Nuevo Pokemon</button></a>
 </div>
 <br>
-
-
-
 
 
 <?php

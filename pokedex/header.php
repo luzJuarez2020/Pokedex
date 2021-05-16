@@ -36,7 +36,7 @@
         <form action="procesarlogin.php" method="post">
             <input type="text" name="usuario" id="usuario" >
             <input type="password" name="contra" id="contra" >
-            <button type="submit"  class="button">ingresar</button>
+            <button type="submit"  class="button">Ingresar</button>
         </form>
     </div>
 

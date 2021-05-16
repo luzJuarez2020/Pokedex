@@ -33,7 +33,6 @@
         <h1 ><b>POKEDEX</b></h1>
     </div >
     <div class="w3-col s4 w3-center" style="padding-top: 25px">
-        <p>usuario admi</p>
     </div>
 
 </header>

@@ -15,15 +15,12 @@ $resultado = $conectar->query($sql);
 
 
     <div class="w3-container">
-        <form action="procesarbusqueda.php" method="post">
+        <form action="mostrarPokemon.php" method="post">
             <input  class="w3-input w3-border" type="text" name="busqueda" id="busqueda" placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
             <button type="submit" class="button">Quien es este pokemon</button>
         </form>
     </div>
 
-    <!-- First Photo Grid-->
-
-    <!-- Second Photo Grid-->
    <?php /*
     $servername = "localhost";
     $username = "root";
@@ -43,7 +40,6 @@ $resultado = $conectar->query($sql);
    }
    $conectar->close();*/
     ?>
-
 
 
     <table class="w3-table  w3-centered w3-border-red" style="margin-top: 15px">
