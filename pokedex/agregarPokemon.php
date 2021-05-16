@@ -21,14 +21,18 @@ $conexion = new mysqli($servername, $username, $password, $database, $port);
 $sql = "insert into pokemon(numero,nombre,tipo,descripcion,habilidad,imagenLink)value ('$numero','$nombre','$tipo','$descripcion','$habilidad','$link')";
 $resultado = $conexion->query($sql);
 
-$sql="select * from pokemon";
-$resultado = $conexion->query($sql);//traigo la query
 
+
+header("location: indexAdmi.php");
+
+
+/*
 if ($resultado->num_rows > 0) {//num rows me dice la cantidad de filas en la query
     while ($fila = $resultado->fetch_assoc()) {//fetch assoc nos devuelve el resultado de una fila como un array asociativo
         echo "nombre: " . $fila["nombre"] . " " . "numero: " . $fila["numero"] . "<br>" . "<br>";
     }
 } else {
     echo "0 results";
-}
+}*/
 
+?>

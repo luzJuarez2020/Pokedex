@@ -54,9 +54,21 @@ $numeroRecibido=$_GET["numero"];
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
             if($fila["numero"]==$numeroRecibido){
+                $tipo="";
+                $dir = "./logos";
+                if (is_dir($dir)) {
+                    $log = scandir($dir);
+                    for ($i = 0; $i < count($log); $i++) {
+                        $nombreLog = $fila["tipo"]. ".png";
+                        if ($nombreLog == $log[$i]) {
+                            $tipo="<img src='$dir/$nombreLog' style='width: 65px'>";
+
+                        }
+                    }
+                }
                 $link=$fila['imagenLink'];
                 echo "<img src='$link' style='width: 300px'>"."<br><br>";
-                echo "numero de pokemon: ".$fila["numero"]."<br> nombre: ".$fila["nombre"]."<br> tipo: ".$fila["tipo"]."\n";
+                echo "numero de pokemon: ".$fila["numero"]."<br> nombre: ".$fila["nombre"]."<br> tipo: ".$tipo."\n";
             }
     }
 }

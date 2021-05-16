@@ -1,5 +1,5 @@
 <?php
-require ("header.php");
+require("header.php");
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,12 +16,13 @@ $resultado = $conectar->query($sql);
 
     <div class="w3-container">
         <form action="mostrarPokemon.php" method="post">
-            <input  class="w3-input w3-border" type="text" name="busqueda" id="busqueda" placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
+            <input class="w3-input w3-border" type="text" name="busqueda" id="busqueda"
+                   placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
             <button type="submit" class="button">Quien es este pokemon</button>
         </form>
     </div>
 
-   <?php /*
+    <?php /*
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -44,7 +45,7 @@ $resultado = $conectar->query($sql);
 
     <table class="w3-table  w3-centered w3-border-red" style="margin-top: 15px">
         <thead>
-        <tr >
+        <tr>
             <th class=" w3-border w3-border-red">Imagen</th>
             <th class=" w3-border w3-border-red">Tipo</th>
             <th class=" w3-border w3-border-red">Numero</th>
@@ -53,35 +54,48 @@ $resultado = $conectar->query($sql);
         </thead>
         <tbody>
         <?php
-        while($filas = $resultado->fetch_assoc()){
+        while ($filas = $resultado->fetch_assoc()) {
             ?>
             <tr>
-                <td class=" w3-border w3-border-red" >
+                <td class=" w3-border w3-border-red">
                     <?php
-                    $link=$filas['imagenLink'];
+                    $link = $filas['imagenLink'];
 
-                    echo "<img src='$link' style='width: 65px'>";?>
+                    echo "<img src='$link' style='width: 65px'>"; ?>
                 </td>
-                <td class=" w3-border w3-border-red" >
-                    <?php echo $filas['tipo'] ?>
+                <td class=" w3-border w3-border-red">
+                    <?php
+                    $dir = "./logos";
+                    if (is_dir($dir)) {
+                        $log = scandir($dir);
+                        for ($i = 0; $i < count($log); $i++) {
+                            $nombreLog = $filas['tipo'] . ".png";
+                            if ($nombreLog == $log[$i]) {
+                                echo "<img src='$dir/$nombreLog' style='width: 65px'>";
+                            }
+                        }
+                    } ?>
                 </td>
                 <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold">
                     <?php echo $filas['numero'] ?>
                 </td>
-                <td class=" w3-border w3-border-red"style="font-size: 30px; font-weight: bold ">
-                    <?php echo $var=$filas['nombre'];
-                    "<a href='cadaPokemon.php?nombre=$var'></a>" ?>
+                <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold ">
+                    <?php
+                    $var=$filas['nombre'];
+                    echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$var'>$var</a>";
+
+                    ?>
                 </td>
             </tr>
         <?php } ?>
         </tbody>
     </table>
 
-<br><br>
+    <br><br>
     <!-- Footer -->
-<?php
-require ("footer.php");
-?>
+    <?php
+    require("footer.php");
+    ?>
 
 
 

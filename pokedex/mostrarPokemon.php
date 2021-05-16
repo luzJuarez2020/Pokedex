@@ -17,11 +17,23 @@ function mostrarResultado($resultado){
     if ($resultado->num_rows >0) {
         while ($fila = $resultado->fetch_assoc()) {
             $nombre = $fila["nombre"];
-            $tipo = $fila["tipo"];
+            $tipo = "";
             $numero = $fila["numero"];
             $descripcion = $fila["descripcion"];
             $imagen = $fila["imagenLink"];
             $habilidad = $fila["habilidad"];
+
+            $dir = "./logos";
+            if (is_dir($dir)) {
+                $log = scandir($dir);
+                for ($i = 0; $i < count($log); $i++) {
+                    $nombreLog = $fila["tipo"]. ".png";
+                    if ($nombreLog == $log[$i]) {
+                        $tipo="<img src='$dir/$nombreLog' style='width: 65px'>";
+
+                    }
+                }
+            }
 
             echo "<div style='display: flex;flex-direction: column;text-align: left;background-color: #e8c7c7;margin-bottom: 20px'>";
             echo "<div style='display: flex;flex-direction: row'>";

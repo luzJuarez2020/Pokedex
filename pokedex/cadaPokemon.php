@@ -21,27 +21,24 @@ function obtenerPokemon($variableRecibida, $resultado) {
         while($fila=$resultado->fetch_assoc()) {
             if($variableRecibida == $fila["nombre"]) {
                 $nombre = $fila["nombre"];
-                $tipo = $fila["tipo"];
+                $tipo = "";
                 $descripcion = $fila["descripcion"];
                 $imagen = $fila["imagenLink"];
                 $habilidad = $fila["habilidad"];
 
-                /*echo "<div style='display:flex; flex-direction: row; Justify-content: center;>";
+                $dir = "./logos";
+                if (is_dir($dir)) {
+                    $log = scandir($dir);
+                    for ($i = 0; $i < count($log); $i++) {
+                        $nombreLog = $fila["tipo"]. ".png";
+                        if ($nombreLog == $log[$i]) {
+                            $tipo="<img src='$dir/$nombreLog' style='width: 65px'>";
 
-                echo "<div>";
+                        }
+                    }
+                }
 
-                echo "<img src='$imagen' style='width: 400px'>";
 
-                echo "</div>";
-                echo "<div>";
-
-                echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre</h1>";
-                echo "<h3>$habilidad</h3>";
-                echo "<p style='font-size: 18px'>$descripcion</p>";
-
-                echo "</div>";
-
-                echo "</div>";*/
                 echo "<div style='display: flex;flex-direction: column;text-align: left;margin-bottom: 20px'>";
                 echo "<div style='display: flex;flex-direction: row'>";
                 echo "<img src='$imagen' style='width: 300px'>";

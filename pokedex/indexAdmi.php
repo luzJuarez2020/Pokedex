@@ -81,7 +81,16 @@ $resultado = $conectar->query($sql);
                 echo "<img src='$link' style='width: 65px'>"?>
             </td>
             <td class=" w3-border w3-border-red" ">
-                <?php echo $filas['tipo'] ?>
+                <?php $dir = "./logos";
+                if (is_dir($dir)) {
+                    $log = scandir($dir);
+                    for ($i = 0; $i < count($log); $i++) {
+                        $nombreLog = $filas['tipo'] . ".png";
+                        if ($nombreLog == $log[$i]) {
+                            echo "<img src='$dir/$nombreLog' style='width: 65px'>";
+                        }
+                    }
+                } ?>
             </td>
             <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold ">
                 <?php echo $filas['numero'] ?>
