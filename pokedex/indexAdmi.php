@@ -20,18 +20,30 @@ $resultado = $conectar->query($sql);
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", sans-serif
     }
+
+    .button{
+        background-color: #f44336 ;
+        color: white;
+        border: 2px solid #f44336;
+    }
+
+    .button:hover {
+        background-color: white;
+        color: black;
+    }
+
 </style>
 
 <body class="w3-light-grey w3-content" style="max-width:1900px">
 
 <header id="portfolio" class="w3-row" >
-    <div class="w3-col s4">
+    <div class="w3-col s4 w3-center">
         <img src="leo.png" height="150px">
     </div>
-    <div class="w3-col s4" >
+    <div class="w3-col s4 w3-center" >
         <h1 ><b>POKEDEX</b></h1>
     </div >
-    <div class="w3-col s4" style="padding-top: 25px">
+    <div class="w3-col s4 w3-center" style="padding-top: 25px">
         <p>usuario admi</p>
     </div>
 
@@ -40,7 +52,7 @@ $resultado = $conectar->query($sql);
 <div class="w3-container">
     <form action="procesarbusqueda.php" method="post">
         <input  class="w3-input w3-border" type="text" name="busqueda" id="busqueda" placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
-        <button type="submit" >Quien es este pokemon</button>
+        <button type="submit"  class="button">Quien es este pokemon</button>
     </form>
 </div>
 
@@ -78,9 +90,9 @@ $resultado = $conectar->query($sql);
             <td class=" w3-border w3-border-red">
                 <?php
                 $var=$filas["numero"];
-                echo "<a href='editarHabilidades.php?numero=$var'>"."<button type='submit'>Habilidades</button></a>";
+                echo "<a href='editarHabilidades.php?numero=$var'>"."<button type='submit'  class='button'>Habilidades</button></a>";
                 ?>
-                <button type="submit">Baja</button>
+                <button type="submit" class="button" >Baja</button>
             </td>
             </td>
         </tr>
@@ -88,11 +100,11 @@ $resultado = $conectar->query($sql);
     </tbody>
 </table>
 
-
+<br>
 <div class="w3-border w3-center ">
-    <a href="nuevoPokemon.php"><button type="button" style="width: 100%">Nuevo Pokemon</button></a>
+    <a href="nuevoPokemon.php"><button type="button" class="button" style="width: 100%">Nuevo Pokemon</button></a>
 </div>
-
+<br>
 
 
 

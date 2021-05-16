@@ -1,4 +1,4 @@
-<footer class="w3-container w3-padding-15 w3-dark-grey">
+<footer class="w3-container w3-padding-15 " style=" margin: 0; padding-bottom: 0; width: 100%; background-color: #e35252; color: white; text-align: center;">
     <div class="w3-row-padding">
         <div class="w3-third">
             <h3>POKEDEX</h3>

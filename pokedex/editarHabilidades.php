@@ -10,23 +10,34 @@
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", sans-serif
     }
+    .button{
+        background-color: #f44336 ;
+        color: white;
+        border: 2px solid #f44336;
+    }
+
+    .button:hover {
+        background-color: white;
+        color: black;
+    }
+
 </style>
 
 <body class="w3-light-grey w3-content" style="max-width:1900px">
 
 <header id="portfolio" class="w3-row">
-    <div class="w3-col s4">
+    <div class="w3-col s4 w3-center">
         <img src="leo.png" height="150px">
     </div>
-    <div class="w3-col s4">
+    <div class="w3-col s4 w3-center">
         <h1><b>POKEDEX</b></h1>
     </div>
-    <div class="w3-col s4" style="padding-top: 25px">
+    <div class="w3-col s4 w3-center" style="padding-top: 25px">
         <p>usuario admi</p>
     </div>
 
 </header>
-
+<div class="w3-main w3-center" style="margin:40px">
 <?php
 $servername = "localhost";
 $username = "root";
@@ -45,14 +56,15 @@ if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
             if($fila["numero"]==$numeroRecibido){
                 $link=$fila['imagenLink'];
-                echo "<img src='$link' style='width: 300px'>"."<br>";
-                echo $fila["numero"]."<br>".$fila["nombre"]."<br>".$fila["tipo"];
+                echo "<img src='$link' style='width: 300px'>"."<br><br>";
+                echo "numero de pokemon: ".$fila["numero"]."<br> nombre: ".$fila["nombre"]."<br> tipo: ".$fila["tipo"]."\n";
             }
     }
 }
 ?>
+    <br><br>
 <form method="get" action="editar.php">
-    <p>Seleccionar la habilidad a editar:</p>
+    <label>Seleccionar la habilidad a editar:
     <select name="habilidades"  >
         <option value="absorbeAgua">Absorbe agua</option>
         <option value="absorbeElectricidad">Absorbe electricidad</option>
@@ -63,23 +75,20 @@ if ($resultado->num_rows > 0) {
         <option value="enjambre">Enjambre</option>
         <option value="inmunidad">Inmunidad</option>
     </select>
+    </label>
     <?php
-    echo "<a href='editar.php?num=$numeroRecibido'>"."<button type='submit'>editar</button></a>";
+    echo "<a href='editar.php?num=$numeroRecibido'>"."<button type='submit' class='button'>editar</button></a>";
     ?>
 
 
 
 </form>
-
-
-
-
-
-
-
+<br>
+</div>
 <?php
 
 
 require("footer.php");
 
 ?>
+

@@ -9,18 +9,14 @@ if(validarusuario($user,$contrasenia)==true){
     header("location:indexAdmi.php");
     exit();
 }else{
-    echo "incorrecto";
+    header("location:index.php");
+    exit();
 }
 
 
 function validarusuario($user,$contrasenia){/*ahorro base d datos*/
     return $user=="pablito" && $contrasenia=="1234";
 }
-
-
-
-
-
 
 
 ?>

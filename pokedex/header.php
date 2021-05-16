@@ -10,6 +10,17 @@
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", sans-serif
     }
+    .button{
+        background-color: #f44336 ;
+        color: white;
+        border: 2px solid #f44336;
+    }
+
+    .button:hover {
+        background-color: white;
+        color: black;
+    }
+
 </style>
 
 <body class="w3-light-grey w3-content" style="max-width:1900px">
@@ -25,7 +36,7 @@
         <form action="procesarlogin.php" method="post">
             <input type="text" name="usuario" id="usuario" >
             <input type="password" name="contra" id="contra" >
-            <button type="submit" >ingresar</button>
+            <button type="submit"  class="button">ingresar</button>
         </form>
     </div>
 

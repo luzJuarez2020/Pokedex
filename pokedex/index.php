@@ -17,7 +17,7 @@ $resultado = $conectar->query($sql);
     <div class="w3-container">
         <form action="procesarbusqueda.php" method="post">
             <input  class="w3-input w3-border" type="text" name="busqueda" id="busqueda" placeholder="Ingrese el nombre, tipo o numero de pokemon" size=100 maxlength=80>
-            <button type="submit" >Quien es este pokemon</button>
+            <button type="submit" class="button">Quien es este pokemon</button>
         </form>
     </div>
 
@@ -80,7 +80,7 @@ $resultado = $conectar->query($sql);
         </tbody>
     </table>
 
-
+<br><br>
     <!-- Footer -->
 <?php
 require ("footer.php");

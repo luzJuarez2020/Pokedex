@@ -18,7 +18,7 @@ $conexion = new mysqli($servername, $username, $password, $database, $port);
 
 
 
-$sql = "insert into pokemon(numero,nombre,tipo,descripcion,habilidad,imagenLink)value ($numero,'$nombre','$tipo','$descripcion','$habilidad','$link')";
+$sql = "insert into pokemon(numero,nombre,tipo,descripcion,habilidad,imagenLink)value ('$numero','$nombre','$tipo','$descripcion','$habilidad','$link')";
 $resultado = $conexion->query($sql);
 
 $sql="select * from pokemon";

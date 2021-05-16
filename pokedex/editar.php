@@ -1,8 +1,7 @@
 <?php
 
+include "editarHabilidades.php";
 
-
-$habilidad=$_GET["habilidades"];
 
 $servername = "localhost";
 $username = "root";
@@ -15,7 +14,7 @@ $numero=$_GET["num"];
 $sql = "select * from pokemon";
 $resultado = $conexion->query($sql);
 
-
+$habilidad=$_GET["habilidades"];
 
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
