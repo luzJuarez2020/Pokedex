@@ -87,7 +87,8 @@ $resultado = $conectar->query($sql);
                 <?php echo $filas['numero'] ?>
             </td>
             <td class=" w3-border w3-border-red"style="font-size: 30px; font-weight: bold ">
-                <?php echo $filas['nombre'] ?>
+                <?php echo $var=$filas['nombre'];
+                "<a href='cadaPokemon.php?nombre=$var'></a>" ?>
             </td>
             <td class=" w3-border w3-border-red">
                 <?php
