@@ -4,7 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3307";
+$port = "3306";
 $conectar = new mysqli($servername, $username, $password, $database, $port);
 $sql = "select * from pokemon";
 $resultado = $conectar->query($sql);
@@ -50,6 +50,7 @@ $resultado = $conectar->query($sql);
             <th class=" w3-border w3-border-red">Tipo</th>
             <th class=" w3-border w3-border-red">Numero</th>
             <th class=" w3-border w3-border-red">Nombre</th>
+            <th class=" w3-border w3-border-red">Habilidad</th>
         </tr>
         </thead>
         <tbody>
@@ -60,8 +61,8 @@ $resultado = $conectar->query($sql);
                 <td class=" w3-border w3-border-red">
                     <?php
                     $link = $filas['imagenLink'];
-
-                    echo "<img src='$link' style='width: 65px'>"; ?>
+                    $nombre=$filas['nombre'];
+                    echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$nombre'><img src='$link' style='width: 65px'></a>";?>
                 </td>
                 <td class=" w3-border w3-border-red">
                     <?php
@@ -77,7 +78,10 @@ $resultado = $conectar->query($sql);
                     } ?>
                 </td>
                 <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold">
-                    <?php echo $filas['numero'] ?>
+                    <?php
+                    $numero=$filas['numero'];
+                    $nombre=$filas['nombre'];
+                    echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$nombre'>$numero</a>"; ?>
                 </td>
                 <td class=" w3-border w3-border-red" style="font-size: 30px; font-weight: bold ">
                     <?php
@@ -85,6 +89,12 @@ $resultado = $conectar->query($sql);
                     echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$var'>$var</a>";
 
                     ?>
+                </td>
+                <td class=" w3-border w3-border-red" style="font-size: 20px; font-weight: bold ">
+                    <?php
+                    $habilidad=$filas['habilidad'];
+                    $nombre=$filas['nombre'];
+                    echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$nombre'>$habilidad</a>";?>
                 </td>
             </tr>
         <?php } ?>
