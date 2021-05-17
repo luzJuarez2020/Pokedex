@@ -12,7 +12,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3306";
+$port = "3307";
 
 $conexion = new mysqli($servername, $username, $password, $database, $port);
 
@@ -37,14 +37,6 @@ if($resultadoBusqueda->num_rows <= 0 ){
 header("location: indexAdmi.php");
 
 
-/*
 
-/*if ($resultadoBusqueda->num_rows > 0) {//num rows me dice la cantidad de filas en la query
-    while ($fila = $resultadoBusqueda->fetch_assoc()) {//fetch assoc nos devuelve el resultado de una fila como un array asociativo
-        echo "nombre: " . $fila["nombre"] . " " . "numero: " . $fila["numero"] . "<br>" . "<br>";
-    }
-} else {
-    echo "0 results";
-}*/
 
 ?>

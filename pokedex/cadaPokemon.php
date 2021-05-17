@@ -39,14 +39,14 @@ function obtenerPokemon($variableRecibida, $resultado) {
                 }
 
 
-                echo "<div style=' margin: 30px;padding: 10px;display: flex;flex-direction: column;text-align: left;background-color: #e8c7c7;margin-bottom: 20px'>";
-                echo "<div style='display: flex;flex-direction: row'>";
-                echo "<img src='$imagen' style='width: 150px'>";
-                echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre </h1>";
-                echo "</div>";
-                echo "<h2 >Tipo: $tipo</h2>";
-                echo "<h2 >Numero: $numero</h2>";
-                echo "<h2 >Habilidad: $habilidad</h2>";
+                echo "<div class='w3-container ' style='background-color:#e8c7c7 ; width: 90%;margin: 0 auto 0;margin-bottom: 20px' >";
+                echo "<br>";
+                echo "<img class='w3-round w3-animate-top' src='$imagen' style='width: 18%'>";
+                echo "<h5 class='w3-opacity' style='font-size: 30px'>Numero: $numero </h5>";
+                echo "<h1 style='font-weight:bold;font-size: 60px'>$nombre </h1>";
+                echo "<h3 >Tipo: $tipo</h3>";
+                echo "<h3 >Numero: $numero</h3>";
+                echo "<h3 >Habilidad: $habilidad</h3>";
                 echo "<p style='font-size: 18px'>$descripcion</p>";
                 echo "</div>";
 
