@@ -35,7 +35,7 @@ function mostrarResultado($resultado){
                 }
             }
 
-            echo "<div style='display: flex;flex-direction: column;text-align: left;background-color: #e8c7c7;margin-bottom: 20px'>";
+            echo "<div style='margin: 30px;padding: 10px;display: flex;flex-direction: column;text-align: left;background-color: #e8c7c7;margin-bottom: 20px'>";
             echo "<div style='display: flex;flex-direction: row'>";
             echo "<img src='$imagen' style='width: 150px'>";
             echo "<h1 style='font-weight:bold;font-size: 60px;margin-left: 50px'>$nombre </h1>";
