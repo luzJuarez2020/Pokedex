@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("headerIndex.php");
 $servername = "localhost";
 $username = "root";
 $password = "";
