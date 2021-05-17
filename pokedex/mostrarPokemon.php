@@ -6,7 +6,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pokemones";
-$port = "3306";
+$port = "3307";
 $conexion = new mysqli($servername, $username, $password, $database, $port);
 
 $sql = "select * from pokemon where numero = '$dato' or tipo = '$dato' or nombre = '$dato'";
@@ -48,11 +48,11 @@ function mostrarResultado($resultado){
         }
     } else{
         if (isset($_SESSION["usuario"])) {
-            header("location:indexAdmi.php");
-            exit();
+           // header("location:indexAdmi.php");
+            echo "<script>alert('pokemon no encontrado '); window.location='indexAdmi.php'</script>";
         } else {
-            header("location:index.php");
-            exit();
+            //header("location:index.php");
+            echo "<script>alert('pokemon no encontrado '); window.location='indexAdmi.php'</script>";
         }
     }
 }

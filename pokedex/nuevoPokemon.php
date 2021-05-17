@@ -26,8 +26,8 @@
 <body class="w3-light-grey w3-content" style="max-width:1900px">
 
 <header id="portfolio" class="w3-row" >
-    <div class="w3-col s4 w3-center">
-        <img src="leo.png" height="150px">
+    <div class="w3-col s4 w3-center" style="padding: 1%">
+        <img src="logos/pokebola.png" width="8%" height="5%">
     </div>
     <div class="w3-col s4 w3-center" >
         <h1 ><b>POKEDEX</b></h1>
