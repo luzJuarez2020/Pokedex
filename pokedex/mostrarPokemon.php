@@ -53,6 +53,7 @@ function mostrarResultado($resultado){
         } else {
             //header("location:index.php");
             echo "<script>alert('pokemon no encontrado '); window.location='index.php'</script>";
+
         }
     }
 }

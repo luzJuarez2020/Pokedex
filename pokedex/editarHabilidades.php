@@ -53,14 +53,14 @@ if(isset($_POST['modificar'])){
     <label>Seleccionar la habilidad a editar:
     <select name="habilidades">
         <option value="">Seleccione Habilidad</option>
-        <option value="absorbeAgua">Absorbe agua</option>
-        <option value="absorbeElectricidad">Absorbe electricidad</option>
-        <option value="absorbeFuego">Absorbe fuego</option>
-        <option value="latigoCepa">Latigo cepa</option>
-        <option value="cabezaRoca">cabezaRoca</option>
-        <option value="electricidadEstatica">Electricidad estatica</option>
-        <option value="enjambre">Enjambre</option>
-        <option value="inmunidad">Inmunidad</option>
+        <option value="HidroBomba">HidroBomba</option>
+        <option value="Trueno">Trueno</option>
+        <option value="Ascuas">Ascuas</option>
+        <option value="Latigo Cepa">Latigo Cepa</option>
+        <option value="Roca Afilada">Roca Afilada</option>
+        <option value="Hiper Rayo">Hiper Rayo</option>
+        <option value="Placaje">Placaje</option>
+        <option value="Furia Dragon">Furia Dragon</option>
     </select>
     </label>
     <button type='submit' name= 'modificar' class='button'>Editar</button></a>

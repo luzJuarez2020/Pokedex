@@ -106,9 +106,9 @@ $resultado = $conectar->query($sql);
             </td>
             <td class=" w3-border w3-border-red" style="font-size: 20px; font-weight: bold ">
             <?php
-            $habilidad=$filas['habilidad'];
-            $nombre=$filas['nombre'];
-            echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$nombre'>$habilidad</a>";?>
+                $habilidad=$filas['habilidad'];
+                $nombre=$filas['nombre'];
+                echo "<a style='text-decoration: none' href='cadaPokemon.php?nombre=$nombre'>$habilidad</a>";?>
             </td>
             <td class=" w3-border w3-border-red">
                 <?php
