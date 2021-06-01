@@ -62,7 +62,12 @@ function mostrarResultado($resultado){
 
 
 <?php
-require ("headerAdmi.php");
+if($_SESSION["usuario"]){
+    require ("headerAdmi.php");
+}else{
+    require ("headerIndex.php");
+}
+
 
 mostrarResultado($resultado);
 

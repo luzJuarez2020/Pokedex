@@ -39,7 +39,7 @@ $resultado = $conectar->query($sql);
 
 <header id="portfolio" class="w3-row" >
     <div class="w3-col s4 w3-center" style="padding: 1%">
-        <img src="logos/pokebola.png" width="8%" height="5%">
+        <img src="logos/pokebola.png" width="20%" height="20%">
     </div>
     <div class="w3-col s4 w3-center" >
         <h1 ><b>POKEDEX</b></h1>

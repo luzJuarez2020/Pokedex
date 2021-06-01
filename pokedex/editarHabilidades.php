@@ -49,7 +49,7 @@ if(isset($_POST['modificar'])){
 }
 ?>
     <br><br>
-<form method="POST" action="editar.php?numero=<?php echo $_GET['numero']; ?>">
+<form method="POST" action="editarHabilidades.php?numero=<?php echo $_GET['numero']; ?>">
     <label>Seleccionar la habilidad a editar:
     <select name="habilidades">
         <option value="">Seleccione Habilidad</option>

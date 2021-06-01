@@ -68,14 +68,14 @@
         <label>Breve descripcion: <br><input type="text" name="descripcion" placeholder="descripcion" style="width: 80%;"></label><br><br>
         <label> Seleccione la habilidad:<br>
         <select name="habilidad" id="habilidad" style="width: 80%">
-            <option value="absorbeAgua">Absorbe agua</option>
-            <option value="absorbeElectricidad">Absorbe electricidad</option>
-            <option value="absorbeFuego">Absorbe fuego</option>
-            <option value="latigoCepa">Latigo cepa</option>
-            <option value="cabezaRoca">cabezaRoca</option>
-            <option value="electricidadEstatica">Electricidad estatica</option>
-            <option value="enjambre">Enjambre</option>
-            <option value="inmunidad">Inmunidad</option>
+            <option value="Hidrobomba">Hidrobomba</option>
+            <option value="Bola Voltio">Bola Voltio</option>
+            <option value="Ascuas">Ascuas</option>
+            <option value="Latigo Cepa">Latigo cepa</option>
+            <option value="Golpe Roca">Golpe Roca</option>
+            <option value="Ciclon">Ciclon</option>
+            <option value="Enjambre">Enjambre</option>
+            <option value="Inmunidad">Inmunidad</option>
         </select>
         </label><br><br>
         <button type="submit" class="button" style="width: 80%; margin-bottom: 10px;">agregar</button>

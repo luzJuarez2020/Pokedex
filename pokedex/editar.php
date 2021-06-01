@@ -1,5 +1,5 @@
 <?php
-
+/*
 include "editarHabilidades.php";
 
 
@@ -24,5 +24,5 @@ if ($resultado->num_rows > 0) {
         }
     }
 }
-
+*/
 ?>
