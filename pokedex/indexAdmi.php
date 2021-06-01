@@ -5,7 +5,7 @@ $password = "";
 $database = "pokemones";
 $port = "3307";
 $conectar = new mysqli($servername, $username, $password, $database, $port);
-$sql = "select * from pokemon";
+$sql = "select * from pokemon order by numero ";
 $resultado = $conectar->query($sql);
 ?>
 <!DOCTYPE html>

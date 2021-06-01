@@ -9,7 +9,7 @@ $database = "pokemones";
 $port = "3307";
 $conexion = new mysqli($servername, $username, $password, $database, $port);
 
-$sql = "select * from pokemon where numero = '$dato' or tipo = '$dato' or nombre = '$dato'";
+$sql = "select * from pokemon where numero = '$dato' or tipo = '$dato' or nombre like '%$dato%'";
 
 $resultado = $conexion->query($sql);
 
